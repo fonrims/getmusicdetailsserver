@@ -5,6 +5,7 @@ import itunesmusicsearch
 app = Flask(__name__)
 
 @app.route('/')
+#This page is made only as an exemple
 def homepage():
     return """
 <!DOCTYPE html>
@@ -44,8 +45,8 @@ def homepage():
 
 
 @app.route('/musicsearch')
-
 def api_musicsearch():
+#Here are the endpoints with api from the first task
     try:
         if 'name' in request.args and 'detail' in request.args:
             track = itunesmusicsearch.search_track(request.args['name'])
@@ -111,6 +112,7 @@ def api_musicsearch():
         return 'Not found: ' + request.args['name']
     except AttributeError:
         return '"' + request.args['name'] + '" - ' + ' has no attribute ' + request.args['detail']
+
 
 if __name__ == '__main__':
     app.run()
