@@ -10,7 +10,6 @@ def homepage():
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>exemple</title>
 </head>
 
@@ -50,7 +49,7 @@ def api_musicsearch():
     try:
         if 'name' in request.args and 'detail' in request.args:
             track = itunesmusicsearch.search_track(request.args['name'])
-            track=track[0]
+            track = track[0]
 
             if 'primary_genre_name' == request.args['detail']:
                 return request.args['detail'] + ': ' + track.primary_genre_name
